@@ -9,11 +9,13 @@ Clash Load Balance Launcher
 ```bash
 node cli.js \
     --conf ~/.config/clash/config.yml \
-    --port 9105
-    --name "prefix"
-    --mode socks5
+    --port 9105 \
+    --name "prefix" \
+    --mode socks5 \
     --dry-run
 ```
+
+HAProxy is listening on 8882.
 
 ## Deps
 

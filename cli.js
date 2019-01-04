@@ -104,6 +104,7 @@ async function main() {
 
     let haproxyConfRender = etpl.compile(await fse.readFile(path.join(__dirname, 'tpl/haproxy.cfg.etpl'), 'utf8'))
     let haproxyConfCotent = haproxyConfRender({
+        mode: {socks5: 'tcp', http: 'http'}[mode],
         ports: groups.map((_, index) => portStartsFrom + index)
     })
     let haproxyConfPath = path.join(tmpDir, 'haproxy.cfg')

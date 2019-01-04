@@ -3,12 +3,13 @@ global
     maxconn 256
 
 defaults
-    mode tcp
+    mode ${mode}
     timeout connect 5000ms
     timeout client 50000ms
     timeout server 50000ms
 
 listen socks-in
-    bind *:8882
+    bind 127.0.0.1:8882
+    balance roundrobin
 <!-- for: ${ports} as ${port}, ${index} -->
     server server${index} 127.0.0.1:${port} maxconn 32<!-- /for -->
