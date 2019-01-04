@@ -1,0 +1,14 @@
+global
+    daemon
+    maxconn 256
+
+defaults
+    mode tcp
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+listen socks-in
+    bind *:8882
+<!-- for: ${ports} as ${port}, ${index} -->
+    server server${index} 127.0.0.1:${port} maxconn 32<!-- /for -->
