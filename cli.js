@@ -116,8 +116,8 @@ async function main() {
         .concat(`rm ${pidFile} > /dev/null 2>&1`)
         .concat(clashConfDirs.map(dir => `clash -d "${dir}" > ${path.join(dir, 'output.log')} 2>&1 &
 echo $! >> ${pidFile}`))
-        .concat(`haproxy -f "${haproxyConfPath}"
-echo $! >> ${pidFile}`).join('\n')
+        .concat(`haproxy -f "${haproxyConfPath}" > ${path.join(tmpDir, 'haproxy.log')} 2>&1 &
+echo $! >>  ${pidFile}`).join('\n')
     let launchShellPath = path.join(tmpDir, 'launch.sh')
     await fse.writeFile(launchShellPath, launchShellContent)
 
