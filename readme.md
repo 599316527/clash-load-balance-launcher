@@ -3,6 +3,10 @@
 
 [Afterimage Technique](http://dragonball.wikia.com/wiki/Afterimage_Technique) (残像拳 Zanzōken, lit. "Afterimage Fist") is an ability to move so swiftly that an image of the user is left behind.
 
+# Deprecated
+
+Since Clash has supported load-balance feature natively, there's no need to apply load-balance with HAProxy.
+
 ## Clash Load Balance Launcher
 
 1. Generate configs for clash workers and haproxy from clash/config.yml
